@@ -2,9 +2,9 @@
 console.log("Hi from your service-worker.js file!")
 
 const FILES_TO_CACHE = [
-    "/",
-    "/index.html",
-    "style.css",
+     "/",
+     "/index.html",
+   "/styles.css",
     "/manifest.webmanifest",
     "https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.css",
     "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
@@ -12,40 +12,40 @@ const FILES_TO_CACHE = [
     "/assets/icons/icon-512x512.png"
 ];
 
-const STATIC_CACHE = "static-cache-v1";
-const RUNTIME_CACHE = "runtime-cache";
+const PRECACHE = 'precache-v1';
+const RUNTIME = 'runtime';
 
-self.addEventListener("install", event => {
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches
-            .open(STATIC_CACHE)
-            .then(cache => cache.addAll(FILES_TO_CACHE))
-            .then(() => self.skipWaiting())
+      caches
+        .open(PRECACHE)
+        .then((cache) => cache.addAll(FILES_TO_CACHE))
+        .then(self.skipWaiting())
     );
-});
+  });
+  
 
 // The activate handler takes care of cleaning up old caches.
-self.addEventListener("activate", event => {
-    const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+// The activate handler takes care of cleaning up old caches.
+self.addEventListener('activate', (event) => {
+    const currentCaches = [PRECACHE, RUNTIME];
     event.waitUntil(
-        caches
-            .keys()
-            .then(cacheNames => {
-                // return array of cache names that are old to delete
-                return cacheNames.filter(
-                    cacheName => !currentCaches.includes(cacheName)
-                );
+      caches
+        .keys()
+        .then((cacheNames) => {
+          return cacheNames.filter((cacheName) => !currentCaches.includes(cacheName));
+        })
+        .then((cachesToDelete) => {
+          return Promise.all(
+            cachesToDelete.map((cacheToDelete) => {
+              return caches.delete(cacheToDelete);
             })
-            .then(cachesToDelete => {
-                return Promise.all(
-                    cachesToDelete.map(cacheToDelete => {
-                        return caches.delete(cacheToDelete);
-                    })
-                );
-            })
-            .then(() => self.clients.claim())
+          );
+        })
+        .then(() => self.clients.claim())
     );
-});
+  });
+  
 
 self.addEventListener("fetch", event => {
     // non GET requests are not cached and requests to other origins are not cached
@@ -61,7 +61,7 @@ self.addEventListener("fetch", event => {
     if (event.request.url.includes("/api/images")) {
         // make network request and fallback to cache if network request fails (offline)
         event.respondWith(
-            caches.open(RUNTIME_CACHE).then(cache => {
+            caches.open(RUNTIME).then(cache => {
                 return fetch(event.request)
                     .then(response => {
                         cache.put(event.request, response.clone());
@@ -81,7 +81,7 @@ self.addEventListener("fetch", event => {
             }
 
             // request is not in cache. make network request and cache the response
-            return caches.open(RUNTIME_CACHE).then(cache => {
+            return caches.open(RUNTIME).then(cache => {
                 return fetch(event.request).then(response => {
                     return cache.put(event.request, response.clone()).then(() => {
                         return response;
