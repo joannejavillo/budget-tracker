@@ -31,11 +31,11 @@ node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifes
 ## Screenshots
 ![screenshot-of-mainpage](./assets/images/budgetpage.png)
 
-![screenshot-of-image-one](./assets/images/fitnessone.png)
+![screenshot-of-image-one](./assets/images/cache-storage.png)
 
-![screenshot-of-image-two](./assets/images/fitnesstwo.png)
+![screenshot-of-image-two](./assets/images/offline-online.png)
 
-![screenshot-of-image-three](./assets/images/fitnessthree.png)
+![screenshot-of-image-three](./assets/images/service-worker.png)
 
 ---
 ## License
