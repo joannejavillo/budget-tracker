@@ -20,7 +20,7 @@
 ---
 
 ## Technologies
-node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifest, indexedDB heroku
+node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifest, indexedDB, heroku
 
 ---
 ## Links
