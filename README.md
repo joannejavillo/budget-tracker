@@ -24,8 +24,8 @@ node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifes
 
 ---
 ## Links
- - Github: (https://github.com/joannejavillo/workout_Tracker)
- - Heroku: (https://morning-escarpment-60880.herokuapp.com/)
+ - Github: (https://github.com/joannejavillo/budget-tracker)
+ - Heroku: ()
  
 ---
 ## Screenshots
