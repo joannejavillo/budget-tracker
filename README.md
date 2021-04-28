@@ -29,7 +29,7 @@ node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifes
  
 ---
 ## Screenshots
-![screenshot-of-mainpage](./assets/icons/budget-page.png)
+![screenshot-of-mainpage](.public/assets/icons/budget-page.png)
 
 ![screenshot-of-image-one](./assets/images/fitnessone.png)
 
