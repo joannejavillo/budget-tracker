@@ -15,6 +15,7 @@
   - [Technologies](#Technologies)
   - [Links](#Links)
   - [Screenshots](#Screenshots)
+  - [Challenges](#Challenges)
   - [License](#License)
   - [Questions](#questions)
 ---
@@ -25,7 +26,7 @@ node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifes
 ---
 ## Links
  - Github: (https://github.com/joannejavillo/budget-tracker)
- - Heroku: ()
+ - Heroku: (https://frozen-springs-04146.herokuapp.com/)
  
 ---
 ## Screenshots
@@ -41,6 +42,11 @@ node js, npm, mongodb, mongoose , service-worker, webpack configuration, manifes
 
 ![screenshot-of-image-three](./public/assets/images/service-worker.png)
 "The service worker"
+
+---
+## Challenges
+- Initially the manifest was not working properly, I had a hard time to figure out the error.
+- I need to deploy 3 times to heroku before I was able to deploy it successfully (must not forget to update the env)
 
 ---
 ## License
