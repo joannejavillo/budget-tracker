@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/License-MIT-purple)
 
 ## Description 
-- This project- the budget-tracker was created using Mongo database with a Mongoose schema and handle route with Express, IndexedDB, service-worker.
+- This PWA project- the budget-tracker was created using Mongo database with a Mongoose schema and handle route with Express, IndexedDB, service-worker.
 - The application should be able to let the user track his/her expenses even if there is no internet connection.
 - The user should enable to track the his/her finances, by adding expenses and deposits to their budget with or without connection. 
 - When they enter their transaction offline, it should populate the total when brought back online.
